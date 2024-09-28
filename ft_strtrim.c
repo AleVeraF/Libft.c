@@ -1,34 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alvera-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/26 13:10:15 by alvera-f          #+#    #+#             */
-/*   Updated: 2024/09/27 14:10:05 by alvera-f         ###   ########.fr       */
+/*   Created: 2024/09/27 15:50:37 by alvera-f          #+#    #+#             */
+/*   Updated: 2024/09/27 17:04:38 by alvera-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	str_len;
+	int		start;
+	int		end;
+	int		i;
 	char	*result;
 
-	if (s == NULL || start >= ft_strlen(s))
-	{
-		result = (char *)malloc(1);
-		result[0] = '\0';
-		return (result);
-	}
-	str_len = ft_strlen(s);
-	if (start + len > str_len)
-		len = str_len - start;
-	result = (char *)malloc((len + 1) * sizeof(char));
-	if (!result)
+	if (!s1 || !set)
 		return (0);
-	ft_strlcpy(result, s + start, len + 1);
+	start = 0;
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	end = ft_strlen(s1) - 1;
+	while (end >= start && ft_strchr(set, s1[end]))
+		end--;
+	result = (char *)malloc((end - start + 1) + 1);
+	if (!result)
+		return (NULL);
+	i = 0;
+	while (i < (end - start + 1))
+	{
+		result[i] = s1[start + i];
+		i++;
+	}
+	result[end - start + 1] = '\0';
 	return (result);
 }

@@ -22,6 +22,8 @@ SRC = ft_isalpha.c \
       ft_calloc.c \
       ft_strdup.c \
       ft_substr.c \
+	  ft_strjoin.c \
+	  ft_strtrim.c \
 
 NAME = libft.a
 
@@ -43,9 +45,8 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 clean: 
 		rm -f $(OBJ)
-fclean:
+fclean: clean
 		rm -f $(NAME)
-
 re: fclean all
 
 .PHONY: clean fclean all re
