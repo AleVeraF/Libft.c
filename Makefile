@@ -31,11 +31,21 @@ SRC = ft_isalpha.c \
 	  ft_strmapi.c \
 	  ft_striteri.c \
 	  ft_itoa.c \
-	  ft_split.c \
+	  ft_split.c 
+BONUS  = ft_lstnew_bonus.c \
+		 ft_lstadd_front_bonus.c \
+		 ft_lstsize_bonus.c \
+		 ft_lstlast_bonus.c \
+		 ft_lstadd_back_bonus.c \
+		 ft_lstdelone_bonus.c \
+		 ft_lstclear_bonus.c \
+		 ft_lstiter_bonus.c \
 
 NAME = libft.a
 
 OBJ = $(SRC:.c=.o)
+
+BONOBJ = $(BONUS:.c=.o)
 
 CC = cc
 
@@ -46,15 +56,18 @@ ARFLAGS = rcs
 
 all: $(NAME)
 
+bonus: $(OBJ) $(BONOBJ)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJ) $(BONOBJ)
+
 $(NAME): $(OBJ)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ)
 
 %.o:%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 clean: 
-		rm -f $(OBJ)
+		rm -f $(OBJ) $(BONOBJ)
 fclean: clean
 		rm -f $(NAME)
-re: fclean all
+re: fclean all bonus
 
-.PHONY: clean fclean all re
+.PHONY: clean fclean all re bonus

@@ -6,7 +6,7 @@
 /*   By: alvera-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 13:58:29 by alvera-f          #+#    #+#             */
-/*   Updated: 2024/10/02 20:09:08 by alvera-f         ###   ########.fr       */
+/*   Updated: 2024/10/04 12:03:07 by alvera-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,16 @@ static int	ft_counter(const char *str, char delimiter)
 		i++;
 	}
 	return (count);
+}
+
+static char	**free_matrix(int position, char **matrix)
+{
+	while (position >= 0)
+	{
+		free(matrix[position--]);
+	}
+	free(matrix);
+	return (NULL);
 }
 
 static char	*allocate_and_copy(const char *str, int start, size_t len)
@@ -67,6 +77,8 @@ static char	**process_word(const char *s, char c, char **t)
 			if (s[i] == c || s[i] == '\0')
 			{
 				t[position] = allocate_and_copy(s, start, i - start);
+				if (!t[position])
+					return (free_matrix(position, t));
 				position++;
 			}
 		}
