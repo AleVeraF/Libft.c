@@ -6,7 +6,7 @@
 /*   By: alvera-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 15:55:13 by alvera-f          #+#    #+#             */
-/*   Updated: 2024/10/04 18:07:41 by alvera-f         ###   ########.fr       */
+/*   Updated: 2024/10/05 13:30:37 by alvera-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
 t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 

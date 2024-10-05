@@ -6,13 +6,13 @@
 /*   By: alvera-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 17:10:46 by alvera-f          #+#    #+#             */
-/*   Updated: 2024/09/27 14:28:38 by alvera-f         ###   ########.fr       */
+/*   Updated: 2024/10/05 14:59:51 by alvera-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dest, char *src)
+static char	*ft_strcpy(char *dest, char *src)
 {
 	int	i;
 
