@@ -58,7 +58,7 @@ ARFLAGS = rcs
 all: $(NAME)
 
 bonus: $(OBJ) $(BONOBJ)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJ) $(BONOBJ)
+	@ $(AR) $(ARFLAGS) $(NAME) $(OBJ) $(BONOBJ)
 
 $(NAME): $(OBJ)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ)

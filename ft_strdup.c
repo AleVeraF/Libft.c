@@ -6,7 +6,7 @@
 /*   By: alvera-f <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 17:10:46 by alvera-f          #+#    #+#             */
-/*   Updated: 2024/10/05 14:59:51 by alvera-f         ###   ########.fr       */
+/*   Updated: 2024/10/08 12:17:50 by alvera-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ char	*ft_strdup(const char *s)
 
 	src = (char *)s;
 	copy = malloc(ft_strlen(src) + 1);
+	if (!copy)
+		return (NULL);
 	if (copy != NULL)
 		return (ft_strcpy(copy, src));
 	return (copy);
